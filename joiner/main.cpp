@@ -69,7 +69,7 @@ auto generateColorMap(const nlohmann::json &nordPro, const nlohmann::json &oneDa
         }
     }
 
-    return std::make_pair(rtn, conflicts);
+    return rtn;
 }
 
 int main()
@@ -90,7 +90,7 @@ int main()
         oneDark = nlohmann::json::parse(oneDarkContent);
     }
 
-    auto [colorMap, conflicts] = generateColorMap(nordPro, oneDark);
+    auto colorMap = generateColorMap(nordPro, oneDark);
     std::map<std::string, std::string> nordItems;
     for (const auto &item : nordPro["tokenColors"])
     {
@@ -100,8 +100,14 @@ int main()
         }
     }
 
+    std::set<std::string> oneDarkItems;
     for (auto &tokenItem : oneDark["tokenColors"])
     {
+        if (tokenItem.count("name"))
+        {
+            oneDarkItems.emplace(tokenItem["name"]);
+        }
+
         if (tokenItem.count("settings"))
         {
             if (tokenItem["settings"].count("foreground"))
@@ -117,14 +123,18 @@ int main()
                         continue;
                     }
 
-                    if (conflicts.count(color))
-                    {
-                        std::cout << "The item '" << tokenItem.value("name", "unknown")
-                                  << "' has a color which is conflicting." << std::endl;
-                    }
                     tokenItem["settings"]["foreground"] = colorMap[color];
                 }
             }
+        }
+    }
+
+    for (const auto &tokenItem : nordPro["tokenColors"])
+    {
+        if (!oneDarkItems.count(tokenItem["name"]))
+        {
+            oneDark["tokenColors"].push_back(tokenItem);
+            std::cout << "Adding missing " << tokenItem["name"] << std::endl;
         }
     }
 
