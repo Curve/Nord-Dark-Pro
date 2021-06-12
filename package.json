@@ -1,6 +1,6 @@
 {
-    "name": "one-dark-pro-nord",
-    "displayName": "One Dark Pro Nord",
+    "name": "nord-dark-pro",
+    "displayName": "Nord Dark Pro",
     "description": "Atom's iconic One Dark theme with Nord colors!",
     "version": "0.0.1",
     "engines": {
@@ -12,9 +12,9 @@
     "contributes": {
         "themes": [
             {
-                "label": "One Dark Pro Nord",
+                "label": "Nord Dark Pro",
                 "uiTheme": "vs-dark",
-                "path": "./themes/One Dark Pro Nord-color-theme.json"
+                "path": "./themes/Nord-Dark-Pro.json"
             }
         ]
     }

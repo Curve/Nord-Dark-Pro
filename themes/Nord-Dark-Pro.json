@@ -1,11 +1,11 @@
 {
-	"name": "One Dark Pro",
+	"name": "Nord Dark Pro",
 	"type": "dark",
 	"semanticHighlighting": true,
 	"semanticTokenColors": {
 		"enumMember": {
 			"foreground": "#88c0d0"
-		},
+		}
 	},
 	"tokenColors": [
 		{
@@ -188,15 +188,15 @@
 			"settings": {
 				"foreground": "#a3be8c"
 			}
-		},
+		}
 	],
 	"colors": {
 		"activityBar.background": "#2e3440",
-		"editor.background": "#292e39", // 2e3440
+		"editor.background": "#292e39",
 		"editorError.foreground": "#bf616a",
 		"editorWarning.foreground": "#ebcb8b",
-		"sideBar.background": "#242933", // 2e3440 --> 242933
-		"sideBar.foreground": "#a1afc9", // d8dee9 --> a1afc9
+		"sideBar.background": "#242933",
+		"sideBar.foreground": "#a1afc9",
 		"statusBar.background": "#3b4252",
 		"statusBarItem.remoteBackground": "#6e8db4",
 		"activityBar.foreground": "#e5e9f0",
@@ -302,13 +302,13 @@
 		"walkThrough.embeddedEditorBackground": "#2e3440",
 		"welcomePage.buttonHoverBackground": "#404754",
 		"terminal.ansiBrightBlack": "#4c566a",
-		"terminal.ansiBrightBlue": "#6e8db4", // 6e8db4
-		"terminal.ansiBrightCyan": "#93c6d4", // 88c0d0
+		"terminal.ansiBrightBlue": "#6e8db4",
+		"terminal.ansiBrightCyan": "#93c6d4",
 		"terminal.ansiBrightGreen": "#8fbcbb",
-		"terminal.ansiBrightMagenta": "#bb99b5", // b48ead
-		"terminal.ansiBrightRed": "#c57078", // bf616a
+		"terminal.ansiBrightMagenta": "#bb99b5",
+		"terminal.ansiBrightRed": "#c57078",
 		"terminal.ansiBrightWhite": "#eceff4",
-		"terminal.ansiBrightYellow": "#ecd096", // ebcb8b
+		"terminal.ansiBrightYellow": "#ecd096",
 		"terminal.ansiBlack": "#2e3440",
 		"terminal.ansiCyan": "#88c0d0",
 		"terminal.ansiBlue": "#6e8db4",
@@ -317,6 +317,6 @@
 		"terminal.ansiRed": "#bf616a",
 		"terminal.ansiWhite": "#d8dee9",
 		"terminal.ansiYellow": "#ebcb8b",
-		"terminal.background": "#292e39", // 2e3440
+		"terminal.background": "#292e39"
 	}
 }
