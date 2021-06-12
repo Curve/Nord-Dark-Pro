@@ -188,6 +188,13 @@
 			"settings": {
 				"foreground": "#a3be8c"
 			}
+		},
+		{
+			"name": "keyword.operator",
+			"scope": "keyword.operator.arithmetic,keyword.operator.comparison,keyword.operator.decrement,keyword.operator.increment,keyword.operator.relational",
+			"settings": {
+				"foreground": "#81A1C1"
+			}
 		}
 	],
 	"colors": {
