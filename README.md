@@ -1,13 +1,21 @@
-# README
-## This is the README for your extension "one-dark-pro-nord"
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
+## 🎉 Nord Dark Pro
+A Nord theme based on One Dark Pro.
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
+## 👀 Preview
 
-### For more information
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+![cpp-code](images/cpp-code.png)
+![ts-code](images/ts-code.png)
 
-**Enjoy!**
+## ✒️ Note
+
+This theme was made with emphasis on C++, the colors for other languages are generated automatically over the base of `One Dark Pro`.
+
+The [base theme file](themes/Nord-Dark-Pro.json) is extremely short & simple and will only work properly in C++ Projects, so if you wish to modify it you can easily do so.
+
+If you're done editing the theme you should compile & execute the theme `joiner`.  
+There may be conflicts when merging the two themes, you can resolve them yourself in the terminal.  
+
+The current `Full-Theme` has the following conflicts resolved with:
+- `#abb2bf` with `#81A1C1`
+- `#c678dd` with `#8FBCBB`
+- `#e5c07b` with `#6E8DB4`
