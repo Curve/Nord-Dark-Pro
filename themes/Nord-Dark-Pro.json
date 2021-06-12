@@ -222,7 +222,6 @@
 		"editorGutter.modifiedBackground": "#948B60",
 		"editor.selectionBackground": "#67769660",
 		"editor.selectionHighlightBackground": "#ffffff10",
-		"editor.selectionHighlightBorder": "#dddddd",
 		"editor.wordHighlightBackground": "#d2e0ff2f",
 		"editor.wordHighlightBorder": "#7f848e",
 		"editor.wordHighlightStrongBackground": "#abb2bf26",
@@ -284,7 +283,7 @@
 		"statusBarItem.remoteForeground": "#f8fafd",
 		"tab.activeBackground": "#282c34",
 		"tab.activeForeground": "#dcdcdc",
-		"tab.border": "#181a1f",
+		"tab.border": "#292e39",
 		"tab.hoverBackground": "#323842",
 		"tab.inactiveBackground": "#21252b",
 		"tab.unfocusedHoverBackground": "#323842",
@@ -317,6 +316,7 @@
 		"terminal.ansiRed": "#bf616a",
 		"terminal.ansiWhite": "#d8dee9",
 		"terminal.ansiYellow": "#ebcb8b",
-		"terminal.background": "#292e39"
+		"terminal.background": "#292e39",
+		"inputOption.activeBorder": "#E9436D80"
 	}
 }

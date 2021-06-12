@@ -21,7 +21,6 @@
         "editor.lineHighlightBackground": "#2c313c",
         "editor.selectionBackground": "#67769660",
         "editor.selectionHighlightBackground": "#ffffff10",
-        "editor.selectionHighlightBorder": "#dddddd",
         "editor.wordHighlightBackground": "#d2e0ff2f",
         "editor.wordHighlightBorder": "#7f848e",
         "editor.wordHighlightStrongBackground": "#abb2bf26",
@@ -53,6 +52,7 @@
         "focusBorder": "#3e4452",
         "gitDecoration.ignoredResourceForeground": "#636b78",
         "input.background": "#1d1f23",
+        "inputOption.activeBorder": "#E9436D80",
         "list.activeSelectionBackground": "#2c313a",
         "list.activeSelectionForeground": "#d7dae0",
         "list.focusBackground": "#323842",
@@ -93,7 +93,7 @@
         "statusBarItem.remoteForeground": "#f8fafd",
         "tab.activeBackground": "#282c34",
         "tab.activeForeground": "#dcdcdc",
-        "tab.border": "#181a1f",
+        "tab.border": "#292e39",
         "tab.hoverBackground": "#323842",
         "tab.inactiveBackground": "#21252b",
         "tab.unfocusedHoverBackground": "#323842",
@@ -1904,7 +1904,7 @@
             "name": "Comments",
             "scope": "comment, punctuation.definition.comment",
             "settings": {
-                "fontStyle": "italic",
+                "fontStyle": "normal",
                 "foreground": "#4c566a"
             }
         },
@@ -2018,21 +2018,21 @@
             "name": "js/ts italic",
             "scope": "entity.other.attribute-name.js,entity.other.attribute-name.ts,entity.other.attribute-name.jsx,entity.other.attribute-name.tsx,variable.parameter,variable.language.super",
             "settings": {
-                "fontStyle": "italic"
+                "fontStyle": "normal"
             }
         },
         {
             "name": "comment",
             "scope": "comment.line.double-slash,comment.block.documentation",
             "settings": {
-                "fontStyle": "italic"
+                "fontStyle": "normal"
             }
         },
         {
             "name": "Python Keyword Control",
             "scope": "keyword.control.import.python,keyword.control.flow.python",
             "settings": {
-                "fontStyle": "italic"
+                "fontStyle": "normal"
             }
         },
         {
@@ -2040,6 +2040,13 @@
             "scope": "markup.italic.markdown",
             "settings": {
                 "fontStyle": "italic"
+            }
+        },
+        {
+            "name": "Provided (support) values",
+            "scope": "support",
+            "settings": {
+                "foreground": "#a3be8c"
             }
         }
     ],
