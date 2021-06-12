@@ -12,9 +12,14 @@
     "contributes": {
         "themes": [
             {
-                "label": "Nord Dark Pro",
+                "label": "Nord Dark Pro (C++ only)",
                 "uiTheme": "vs-dark",
                 "path": "./themes/Nord-Dark-Pro.json"
+            },
+            {
+                "label": "Nord Dark Pro (Full)",
+                "uiTheme": "vs-dark",
+                "path": "./themes/Nord-Dark-Pro-Full.json"
             }
         ]
     }
