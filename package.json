@@ -1,6 +1,11 @@
 {
+    "publisher": "Curve",
     "name": "nord-dark-pro",
     "icon": "images/icon.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Curve/Nord-Dark-Pro"
+    },
     "displayName": "Nord Dark Pro",
     "description": "Atom's iconic One Dark theme with Nord colors!",
     "version": "0.0.1",
@@ -23,5 +28,8 @@
                 "path": "./themes/Nord-Dark-Pro-Full.json"
             }
         ]
+    },
+    "dependencies": {
+        "vsce": "^1.93.0"
     }
 }
