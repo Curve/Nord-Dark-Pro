@@ -6,40 +6,84 @@
 #include <set>
 #include <string>
 
+auto getScopes(const nlohmann::json &item)
+{
+    std::vector<std::string> scopes;
+
+    if (item.count("scope"))
+    {
+        if (item["scope"].is_array())
+        {
+            for (const auto &scope : item["scope"])
+            {
+                scopes.emplace_back(scope.get<std::string>());
+            }
+        }
+        else if (item["scope"].is_string())
+        {
+            auto scope = item["scope"].get<std::string>();
+
+            if (scope.find(','))
+            {
+                while (scope.find(',') != std::string::npos)
+                {
+                    auto splitted = scope.substr(0, scope.find_first_of(','));
+                    scopes.emplace_back(splitted);
+
+                    scope = scope.substr(scope.find_first_of(',') + 1);
+                }
+            }
+            else
+            {
+                scopes.emplace_back(scope);
+            }
+        }
+    }
+
+    return scopes;
+}
+
+auto similarScopes(const nlohmann::json &nordItem, const nlohmann::json &oneDarkItem)
+{
+    auto nordScopes = getScopes(nordItem);
+    auto oneDarkScopes = getScopes(oneDarkItem);
+
+    for (const auto &scope : nordItem)
+    {
+        if (std::find(oneDarkItem.begin(), oneDarkItem.end(), scope) != oneDarkItem.end())
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 auto generateColorMap(const nlohmann::json &nordPro, const nlohmann::json &oneDark)
 {
     std::set<std::string> conflicts;
-    std::map<std::string, std::string> rtn;
+    std::map<std::string, std::string> colorMap;
 
     for (const auto &nordItem : nordPro["tokenColors"])
     {
-        auto nordName = nordItem.at("name").get<std::string>(); // Always present in nordTheme.
-        auto nordColor = nordItem["settings"]["foreground"].get<std::string>();
-
         for (const auto &oneDarkItem : oneDark["tokenColors"])
         {
-            if (oneDarkItem.count("settings"))
+            if (similarScopes(nordItem, oneDarkItem))
             {
-                if (oneDarkItem["settings"].count("foreground"))
+                if (oneDarkItem.count("settings"))
                 {
-                    auto oneDarkName = oneDarkItem.value("name", "");
-                    auto oneDarkColor = oneDarkItem["settings"]["foreground"].get<std::string>();
-
-                    if (nordName == oneDarkName)
+                    if (oneDarkItem["settings"].count("foreground"))
                     {
-                        if (!rtn.count(oneDarkColor))
+                        auto nordColor = nordItem["settings"]["foreground"];
+                        auto oneDarkColor = oneDarkItem["settings"]["foreground"];
+
+                        if (!colorMap.count(oneDarkColor))
                         {
-                            rtn[oneDarkColor] = nordColor;
+                            colorMap.emplace(oneDarkColor, nordColor);
                         }
-                        else
+                        else if (nordColor != colorMap[oneDarkColor])
                         {
-                            if (rtn[oneDarkColor] != nordColor)
-                            {
-                                std::cout << "'" << oneDarkName << "'(" << oneDarkColor
-                                          << ") has different values, current: " << rtn[oneDarkColor]
-                                          << ", new: " << nordColor << std::endl;
-                                conflicts.emplace(oneDarkColor);
-                            }
+                            conflicts.emplace(oneDarkColor);
                         }
                     }
                 }
@@ -49,27 +93,24 @@ auto generateColorMap(const nlohmann::json &nordPro, const nlohmann::json &oneDa
 
     for (const auto &conflict : conflicts)
     {
-        if (!rtn.count(conflict))
-            continue;
+        std::cout << "The colors " << conflict << " and " << colorMap[conflict] << " are in conflict, replace? [y/n]"
+                  << std::endl;
 
-        std::cout << "'" << conflict << "'"
-                  << " and '" << rtn[conflict] << "' are conflicting, replace conflict? [y/n]" << std::endl;
+        char choice = 'n';
+        std::cin >> choice;
 
-        char a = 'n';
-        std::cin >> a;
-
-        if (a == 'y')
+        if (choice == 'y')
         {
             std::cout << "Enter new color: ";
 
-            std::string newColor;
-            std::cin >> newColor;
+            std::string replacement;
+            std::cin >> replacement;
 
-            rtn[conflict] = newColor;
+            colorMap[conflict] = replacement;
         }
     }
 
-    return rtn;
+    return colorMap;
 }
 
 int main()
@@ -90,56 +131,56 @@ int main()
         oneDark = nlohmann::json::parse(oneDarkContent);
     }
 
+    // Adjust Colors
     auto colorMap = generateColorMap(nordPro, oneDark);
-    std::map<std::string, std::string> nordItems;
-    for (const auto &item : nordPro["tokenColors"])
+    for (const auto &nordItem : nordPro["tokenColors"])
     {
-        if (item.count("name"))
-        {
-            nordItems.emplace(item["name"], item["settings"]["foreground"]);
-        }
-    }
+        auto nordColor = nordItem["settings"]["foreground"];
 
-    std::set<std::string> oneDarkItems;
-    for (auto &tokenItem : oneDark["tokenColors"])
-    {
-        if (tokenItem.count("name"))
+        for (auto &oneDarkItem : oneDark["tokenColors"])
         {
-            oneDarkItems.emplace(tokenItem["name"]);
-        }
-
-        if (tokenItem.count("settings"))
-        {
-            if (tokenItem["settings"].count("foreground"))
+            if (similarScopes(nordItem, oneDarkItem))
             {
-                auto color = tokenItem["settings"]["foreground"].get<std::string>();
-                if (colorMap.count(color))
-                {
-                    auto name = tokenItem.value("name", "");
-                    if (!name.empty() && nordItems.count(name))
-                    {
-                        std::cout << "Forcing Color for " << name << std::endl;
-                        tokenItem["settings"]["foreground"] = nordItems.at(name);
-                        continue;
-                    }
+                std::cout << "Forcing '" << nordItem["name"] << "'" << std::endl;
+                oneDarkItem["settings"] = nordItem["settings"];
+                continue;
+            }
 
-                    tokenItem["settings"]["foreground"] = colorMap[color];
+            if (oneDarkItem.count("settings"))
+            {
+                if (oneDarkItem["settings"].count("foreground"))
+                {
+                    auto &oneDarkColor = oneDarkItem["settings"]["foreground"];
+
+                    if (colorMap.count(oneDarkColor))
+                    {
+                        oneDarkColor = colorMap[oneDarkColor];
+                    }
                 }
             }
         }
     }
 
-    for (const auto &tokenItem : nordPro["tokenColors"])
+    // Add Missing Items
+    for (const auto &nordItem : nordPro["tokenColors"])
     {
-        if (!oneDarkItems.count(tokenItem["name"]))
+        bool found = false;
+        for (const auto &oneDarkItem : oneDark["tokenColors"])
         {
-            oneDark["tokenColors"].push_back(tokenItem);
-            std::cout << "Adding missing " << tokenItem["name"] << std::endl;
+            if (similarScopes(nordItem, oneDarkItem))
+            {
+                found = true;
+                break;
+            }
+        }
+
+        if (!found)
+        {
+            oneDark["tokenColors"].push_back(nordItem);
         }
     }
 
     nordPro["tokenColors"] = oneDark["tokenColors"];
-
     std::ofstream output("output.json");
     output << nordPro.dump() << std::endl;
     output.close();
