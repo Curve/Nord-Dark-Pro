@@ -10,7 +10,8 @@ A Nord theme based on One Dark Pro.
 
 This theme was made with emphasis on C++, the colors for other languages are generated automatically over the base of `One Dark Pro`.
 
-The [base theme file](themes/Nord-Dark-Pro.json) is extremely short & simple and will only work properly in C++ Projects, so if you wish to modify it you can easily do so.
+The [base theme file](themes/Nord-Dark-Pro.json) is short, simple and also features descriptions for each `tokenColor` item, so if you wish to modify it you can easily do so without great knowledge!  
+> However, the base theme will only work properly for C++ highlighting
 
 If you're done editing the theme you should compile & execute the theme `joiner`.  
 There may be conflicts when merging the two themes, you can resolve them yourself in the terminal.  
