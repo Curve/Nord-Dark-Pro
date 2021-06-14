@@ -23,7 +23,7 @@ auto getScopes(const nlohmann::json &item)
         {
             auto scope = item["scope"].get<std::string>();
 
-            if (scope.find(','))
+            if (scope.find(',') != std::string::npos)
             {
                 while (scope.find(',') != std::string::npos)
                 {
@@ -48,9 +48,14 @@ auto similarScopes(const nlohmann::json &nordItem, const nlohmann::json &oneDark
     auto nordScopes = getScopes(nordItem);
     auto oneDarkScopes = getScopes(oneDarkItem);
 
-    for (const auto &scope : nordItem)
+    if (nordScopes.empty() || oneDarkScopes.empty())
     {
-        if (std::find(oneDarkItem.begin(), oneDarkItem.end(), scope) != oneDarkItem.end())
+        return false;
+    }
+
+    for (const auto &scope : nordScopes)
+    {
+        if (std::find(oneDarkScopes.begin(), oneDarkScopes.end(), scope) != oneDarkScopes.end())
         {
             return true;
         }
@@ -176,6 +181,7 @@ int main()
 
         if (!found)
         {
+            std::cout << "Adding '" << nordItem["name"] << "' to one dark" << std::endl;
             oneDark["tokenColors"].push_back(nordItem);
         }
     }
