@@ -125,10 +125,6 @@ auto translateColor(const std::string &name)
                     l = static_cast<float>(std::fmin(1, fmax(0, l)));
 
                     auto newColor = vivid::Color({hsl.x, hsl.y, l}, vivid::Color::Space::Hsl);
-
-                    std::cout << vividColor.info() << std::endl;
-                    std::cout << newColor.info() << std::endl;
-
                     color = newColor.hex();
                 }
                 if (params[0] == 'l')
@@ -141,10 +137,6 @@ auto translateColor(const std::string &name)
                     l = static_cast<float>(std::fmin(1, fmax(0, l)));
 
                     auto newColor = vivid::Color({hsl.x, hsl.y, l}, vivid::Color::Space::Hsl);
-
-                    std::cout << vividColor.info() << std::endl;
-                    std::cout << newColor.info() << std::endl;
-
                     color = newColor.hex();
                 }
             }
@@ -214,19 +206,15 @@ int main()
 {
     nlohmann::json nordPro;
     {
-        std::ifstream nordProFile("../../themes/Nord-Dark-Pro.json");
+        std::ifstream nordProFile("../../themes/Nord-Dark-Pro Base.json");
         std::string nordProContent((std::istreambuf_iterator<char>(nordProFile)), std::istreambuf_iterator<char>());
         nordProFile.close();
         nordPro = nlohmann::json::parse(nordProContent);
     }
 
-    nlohmann::json oneDark;
-    {
-        std::ifstream oneDarkFile("../OneDark-Pro/themes/OneDark-Pro.json");
-        std::string oneDarkContent((std::istreambuf_iterator<char>(oneDarkFile)), std::istreambuf_iterator<char>());
-        oneDarkFile.close();
-        oneDark = nlohmann::json::parse(oneDarkContent);
-    }
+    std::cout << "Do you wish to merge with one dark? [y/N]";
+    char choice = 'n';
+    std::cin >> choice;
 
     // Replace Color Names by corresponding color code
     for (auto &nordItem : nordPro["tokenColors"])
@@ -240,57 +228,69 @@ int main()
         color = translateColor(color);
     }
 
-    // Adjust Colors
-    auto colorMap = generateColorMap(nordPro, oneDark);
-    for (const auto &nordItem : nordPro["tokenColors"])
+    if (choice == 'y')
     {
-        auto nordColor = nordItem["settings"]["foreground"];
-
-        for (auto &oneDarkItem : oneDark["tokenColors"])
+        nlohmann::json oneDark;
         {
-            if (similarScopes(nordItem, oneDarkItem))
-            {
-                std::cout << "Forcing '" << nordItem["name"] << "'" << std::endl;
-                oneDarkItem["settings"] = nordItem["settings"];
-                continue;
-            }
+            std::ifstream oneDarkFile("../OneDark-Pro/themes/OneDark-Pro.json");
+            std::string oneDarkContent((std::istreambuf_iterator<char>(oneDarkFile)), std::istreambuf_iterator<char>());
+            oneDarkFile.close();
+            oneDark = nlohmann::json::parse(oneDarkContent);
+        }
 
-            if (oneDarkItem.count("settings"))
+        // Adjust Colors
+        auto colorMap = generateColorMap(nordPro, oneDark);
+        for (const auto &nordItem : nordPro["tokenColors"])
+        {
+            auto nordColor = nordItem["settings"]["foreground"];
+
+            for (auto &oneDarkItem : oneDark["tokenColors"])
             {
-                if (oneDarkItem["settings"].count("foreground"))
+                if (similarScopes(nordItem, oneDarkItem))
                 {
-                    auto &oneDarkColor = oneDarkItem["settings"]["foreground"];
+                    std::cout << "Forcing '" << nordItem["name"] << "'" << std::endl;
+                    oneDarkItem["settings"] = nordItem["settings"];
+                    continue;
+                }
 
-                    if (colorMap.count(oneDarkColor))
+                if (oneDarkItem.count("settings"))
+                {
+                    if (oneDarkItem["settings"].count("foreground"))
                     {
-                        oneDarkColor = colorMap[oneDarkColor];
+                        auto &oneDarkColor = oneDarkItem["settings"]["foreground"];
+
+                        if (colorMap.count(oneDarkColor))
+                        {
+                            oneDarkColor = colorMap[oneDarkColor];
+                        }
                     }
                 }
             }
         }
-    }
 
-    // Add Missing Items
-    for (const auto &nordItem : nordPro["tokenColors"])
-    {
-        bool found = false;
-        for (const auto &oneDarkItem : oneDark["tokenColors"])
+        // Add Missing Items
+        for (const auto &nordItem : nordPro["tokenColors"])
         {
-            if (similarScopes(nordItem, oneDarkItem))
+            bool found = false;
+            for (const auto &oneDarkItem : oneDark["tokenColors"])
             {
-                found = true;
-                break;
+                if (similarScopes(nordItem, oneDarkItem))
+                {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                std::cout << "Adding '" << nordItem["name"] << "' to one dark" << std::endl;
+                oneDark["tokenColors"].push_back(nordItem);
             }
         }
 
-        if (!found)
-        {
-            std::cout << "Adding '" << nordItem["name"] << "' to one dark" << std::endl;
-            oneDark["tokenColors"].push_back(nordItem);
-        }
+        nordPro["tokenColors"] = oneDark["tokenColors"];
     }
 
-    nordPro["tokenColors"] = oneDark["tokenColors"];
     std::ofstream output("output.json");
     output << nordPro.dump() << std::endl;
     output.close();
