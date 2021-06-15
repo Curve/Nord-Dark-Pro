@@ -4,3 +4,6 @@
 [submodule "joiner/json"]
 	path = joiner/json
 	url = https://github.com/nlohmann/json
+[submodule "joiner/vivid"]
+	path = joiner/vivid
+	url = https://github.com/gurki/vivid
