@@ -1,0 +1,302 @@
+{
+	"name": "Nord Dark Pro",
+	"type": "dark",
+	"semanticHighlighting": true,
+	"semanticTokenColors": {
+		"enumMember": {
+			"foreground": "#88c0d0"
+		}
+	},
+	"tokenColors": [
+		{
+			"name": "Quotes",
+			"settings": {
+				"foreground": "nord14"
+			},
+			"description": "Responsible for Quote color",
+			"scope": [
+				"punctuation.definition.string.begin",
+				"punctuation.definition.string.end"
+			]
+		},
+		{
+			"name": "Commas",
+			"settings": {
+				"foreground": "nord5 d10"
+			},
+			"description": "Responsible for commas",
+			"scope": "punctuation.separator.delimiter"
+		},
+		{
+			"name": "C++ block",
+			"settings": {
+				"foreground": "nord5 d18"
+			},
+			"description": "Responsible for (curly) brackets / blocks",
+			"scope": [
+				"punctuation.section.block.begin.bracket.curly.cpp",
+				"punctuation.section.block.end.bracket.curly.cpp"
+			]
+		},
+		{
+			"name": "Constant Names",
+			"settings": {
+				"foreground": "nord9 d10"
+			},
+			"description": "Responsible for const variables names, for example `const auto& **item**`",
+			"scope": "variable.other.constant"
+		},
+		{
+			"name": "Non Const Names",
+			"settings": {
+				"foreground": "nord9 d5"
+			},
+			"description": "Responsible for non const variables names, for example `std::set<std::string> **set**`",
+			"scope": "variable.other.readwrite"
+		},
+		{
+			"name": "Variables",
+			"settings": {
+				"foreground": "nord9 d5"
+			},
+			"description": "Responsible for variable names (function parameters, class members)",
+			"scope": "variable"
+		},
+		{
+			"name": "Control Keywords",
+			"settings": {
+				"foreground": "nord9"
+			},
+			"description": "Responsible for control keywords, for example `return`, `if`, `using`, `#ifdef`",
+			"scope": [
+				"keyword",
+				"keyword.control"
+			]
+		},
+		{
+			"name": "Operators",
+			"settings": {
+				"foreground": "nord9"
+			},
+			"description": "Responsible for operators",
+			"scope": [
+				"keyword.operator"
+			]
+		},
+		{
+			"name": "Namespaces",
+			"settings": {
+				"foreground": "nord7"
+			},
+			"description": "Responsible for namespace names",
+			"scope": "entity.name.namespace"
+		},
+		{
+			"name": "Functions",
+			"settings": {
+				"foreground": "nord8"
+			},
+			"description": "Responsible for function names",
+			"scope": "entity.name.function"
+		},
+		{
+			"name": "Types / Classes",
+			"settings": {
+				"foreground": "nord7"
+			},
+			"description": "Responsible for types, for example `int`, `auto`, also class names",
+			"scope": "entity.name.type"
+		},
+		{
+			"name": "Storage",
+			"settings": {
+				"foreground": "nord9"
+			},
+			"description": "Responsible for primitive return types, private, public, modifiers",
+			"scope": "storage"
+		},
+		{
+			"name": "Strings",
+			"settings": {
+				"foreground": "nord14"
+			},
+			"description": "Responsible for strings (what's inside of the quotes), also for includes in angled brackets",
+			"scope": "string"
+		},
+		{
+			"name": "Integers",
+			"settings": {
+				"foreground": "nord15"
+			},
+			"description": "Responsible for numbers",
+			"scope": "constant.numeric"
+		},
+		{
+			"name": "Constants",
+			"settings": {
+				"foreground": "nord15"
+			},
+			"description": "Responsible for constants, for example `nullptr`",
+			"scope": "constant"
+		},
+		{
+			"name": "Comments",
+			"settings": {
+				"fontStyle": "",
+				"foreground": "nord3 d5"
+			},
+			"description": "Responsible for comments",
+			"scope": [
+				"comment",
+				"punctuation.definition.comment"
+			]
+		},
+		{
+			"name": "Attributes",
+			"settings": {
+				"foreground": "nord12"
+			},
+			"description": "Responsible for: e.g. #pragma **once**",
+			"scope": "entity.other.attribute-name"
+		},
+		{
+			"name": "Supports",
+			"settings": {
+				"foreground": "nord12"
+			},
+			"description": "Responsible for things like [[maybe_unused]]",
+			"scope": "support"
+		}
+	],
+	"colors": {
+		"activityBar.background": "nord2 d8",
+		"editor.background": "nord0 d5",
+		"editorError.foreground": "nord11",
+		"editorWarning.foreground": "nord13",
+		"sideBar.background": "nord0 d3",
+		"sideBar.foreground": "nord5 d20",
+		"statusBar.background": "nord1",
+		"statusBarItem.remoteBackground": "nord9 d5",
+		"activityBar.foreground": "nord5",
+		"activityBarBadge.background": "#4d78cc",
+		"activityBarBadge.foreground": "#f8fafd",
+		"badge.background": "#282c34",
+		"button.background": "#404754",
+		"button.secondaryBackground": "#30333d",
+		"button.secondaryForeground": "#c0bdbd",
+		"debugToolBar.background": "#21252b",
+		"descriptionForeground": "#d8dee9",
+		"diffEditor.insertedTextBackground": "#00809b33",
+		"dropdown.background": "#21252b",
+		"dropdown.border": "#21252b",
+		"editor.findMatchBackground": "#42557b",
+		"editor.findMatchBorder": "#457dff",
+		"editor.findMatchHighlightBackground": "#6199ff2f",
+		"editor.foreground": "nord5 d20",
+		"editor.lineHighlightBackground": "nord3 d15",
+		"editorLineNumber.activeForeground": "#abb2bf",
+		"editorGutter.addedBackground": "#109868",
+		"editorGutter.deletedBackground": "#9A353D",
+		"editorGutter.modifiedBackground": "#948B60",
+		"editor.selectionBackground": "#67769660",
+		"editor.selectionHighlightBackground": "#ffffff10",
+		"editor.wordHighlightBackground": "#d2e0ff2f",
+		"editor.wordHighlightBorder": "#7f848e",
+		"editor.wordHighlightStrongBackground": "#abb2bf26",
+		"editor.wordHighlightStrongBorder": "#7f848e",
+		"editorBracketMatch.background": "#515a6b",
+		"editorBracketMatch.border": "#515a6b",
+		"editorCursor.background": "#ffffffc9",
+		"editorCursor.foreground": "#528bff",
+		"editorGroup.border": "#181a1f",
+		"editorGroupHeader.tabsBackground": "#21252b",
+		"editorHoverWidget.background": "#21252b",
+		"editorHoverWidget.border": "#181a1f",
+		"editorIndentGuide.activeBackground": "#c8c8c859",
+		"editorIndentGuide.background": "#3b4048",
+		"editorLineNumber.foreground": "#495162",
+		"editorMarkerNavigation.background": "#21252b",
+		"editorRuler.foreground": "#abb2bf26",
+		"editorSuggestWidget.background": "#21252b",
+		"editorSuggestWidget.border": "#181a1f",
+		"editorSuggestWidget.selectedBackground": "#2c313a",
+		"editorWhitespace.foreground": "#3b4048",
+		"editorWidget.background": "#21252b",
+		"focusBorder": "#3e4452",
+		"gitDecoration.ignoredResourceForeground": "#636b78",
+		"input.background": "#1d1f23",
+		"list.activeSelectionBackground": "#2c313a",
+		"list.activeSelectionForeground": "#d7dae0",
+		"list.focusBackground": "#323842",
+		"list.focusForeground": "#f0f0f0",
+		"list.highlightForeground": "#c5c5c5",
+		"list.hoverBackground": "#2c313a",
+		"list.hoverForeground": "#fff",
+		"list.inactiveSelectionBackground": "#323842",
+		"list.inactiveSelectionForeground": "#d7dae0",
+		"list.warningForeground": "#d19a66",
+		"menu.foreground": "#abb2bf",
+		"menu.separatorBackground": "#343a45",
+		"minimapGutter.addedBackground": "#109868",
+		"minimapGutter.deletedBackground": "#9A353D",
+		"minimapGutter.modifiedBackground": "#948B60",
+		"panelSectionHeader.background": "#21252b",
+		"peekViewEditor.background": "#1b1d23",
+		"peekViewEditor.matchHighlightBackground": "#29244b",
+		"peekViewResult.background": "#22262b",
+		"scrollbar.shadow": "#23252c",
+		"scrollbarSlider.activeBackground": "#747d9180",
+		"scrollbarSlider.background": "#4e566660",
+		"scrollbarSlider.hoverBackground": "#5a637580",
+		"settings.focusedRowBackground": "#282c34",
+		"settings.headerForeground": "#fff",
+		"sideBarSectionHeader.background": "#282c34",
+		"sideBarSectionHeader.foreground": "#abb2bf",
+		"statusBar.debuggingBackground": "#cc6633",
+		"statusBar.debuggingBorder": "#66017a",
+		"statusBar.debuggingForeground": "#ffffff",
+		"statusBar.foreground": "#9da5b4",
+		"statusBar.noFolderBackground": "#21252b",
+		"statusBarItem.hoverBackground": "#2c313a",
+		"statusBarItem.remoteForeground": "#f8fafd",
+		"tab.activeBackground": "nord1",
+		"tab.activeForeground": "nord4",
+		"tab.border": "nord0 d3",
+		"tab.hoverBackground": "nord1 d5",
+		"tab.inactiveBackground": "nord0 d3",
+		"tab.unfocusedHoverBackground": "nord1 d5",
+		"textBlockQuote.background": "#2e3440",
+		"textBlockQuote.border": "#4b5362",
+		"walkThrough.embeddedEditorBackground": "#2e3440",
+		"welcomePage.buttonHoverBackground": "nord1",
+		"welcomePage.buttonBackground": "nord0 d2",
+		"inputOption.activeBorder": "#E9436D80",
+		"textLink.foreground": "nord7",
+		"textLink.activeForeground": "nord7 d10",
+		"textPreformat.foreground": "#d19a66",
+		"titleBar.activeBackground": "#282c34",
+		"titleBar.activeForeground": "#9da5b4",
+		"titleBar.inactiveBackground": "#21252b",
+		"titleBar.inactiveForeground": "#6b717d",
+		"terminal.border": "nord0 d4",
+		"terminal.selectionBackground": "nord2 d5",
+		"terminal.foreground": "nord4 d15",
+		"terminal.ansiBrightBlack": "nord1",
+		"terminal.ansiBrightBlue": "nord7 l5",
+		"terminal.ansiBrightCyan": "nord8 l5",
+		"terminal.ansiBrightGreen": "nord14 l5",
+		"terminal.ansiBrightMagenta": "nord15 l5",
+		"terminal.ansiBrightRed": "nord11 l5",
+		"terminal.ansiBrightWhite": "nord4",
+		"terminal.ansiBrightYellow": "nord13 l5",
+		"terminal.ansiBlack": "nord0",
+		"terminal.ansiCyan": "nord8",
+		"terminal.ansiBlue": "nord7",
+		"terminal.ansiGreen": "nord14",
+		"terminal.ansiMagenta": "nord15",
+		"terminal.ansiRed": "nord11",
+		"terminal.ansiWhite": "nord6",
+		"terminal.ansiYellow": "nord13",
+		"terminal.background": "nord0 d4"
+	}
+}
