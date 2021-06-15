@@ -1,182 +1,6 @@
 {
-	"name": "Nord Dark Pro",
-	"type": "dark",
-	"semanticHighlighting": true,
-	"semanticTokenColors": {
-		"enumMember": {
-			"foreground": "#88c0d0"
-		}
-	},
-	"tokenColors": [
-		{
-			"name": "Quotes",
-			"settings": {
-				"foreground": "#a3be8c"
-			},
-			"description": "Responsible for Quote color",
-			"scope": [
-				"punctuation.definition.string.begin",
-				"punctuation.definition.string.end"
-			]
-		},
-		{
-			"name": "Commas",
-			"settings": {
-				"foreground": "#81a1c1"
-			},
-			"description": "Responsible for commas",
-			"scope": "punctuation.separator.delimiter"
-		},
-		{
-			"name": "C++ block",
-			"settings": {
-				"foreground": "#81a1c1"
-			},
-			"description": "Responsible for (curly) brackets / blocks",
-			"scope": [
-				"punctuation.section.block.begin.bracket.curly.cpp",
-				"punctuation.section.block.end.bracket.curly.cpp"
-			]
-		},
-		{
-			"name": "Constant Names",
-			"settings": {
-				"foreground": "#6e8db4"
-			},
-			"description": "Responsible for const variables names, for example `const auto& **item**`",
-			"scope": "variable.other.constant"
-		},
-		{
-			"name": "Non Const Names",
-			"settings": {
-				"foreground": "#6e8db4"
-			},
-			"description": "Responsible for non const variables names, for example `std::set<std::string> **set**`",
-			"scope": "variable.other.readwrite"
-		},
-		{
-			"name": "Variables",
-			"settings": {
-				"foreground": "#6e8db4"
-			},
-			"description": "Responsible for variable names (function parameters, class members)",
-			"scope": "variable"
-		},
-		{
-			"name": "Control Keywords",
-			"settings": {
-				"foreground": "#81a1c1"
-			},
-			"description": "Responsible for control keywords, for example `return`, `if`, `using`, `#ifdef`",
-			"scope": [
-				"keyword",
-				"keyword.control"
-			]
-		},
-		{
-			"name": "Operators",
-			"settings": {
-				"foreground": "#81a1c1"
-			},
-			"description": "Responsible for operators",
-			"scope": [
-				"keyword.operator"
-			]
-		},
-		{
-			"name": "Namespaces",
-			"settings": {
-				"foreground": "#8FBCBB"
-			},
-			"description": "Responsible for namespace names",
-			"scope": "entity.name.namespace"
-		},
-		{
-			"name": "Functions",
-			"settings": {
-				"foreground": "#88c0d0"
-			},
-			"description": "Responsible for function names",
-			"scope": "entity.name.function"
-		},
-		{
-			"name": "Types / Classes",
-			"settings": {
-				"foreground": "#8FBCBB"
-			},
-			"description": "Responsible for types, for example `int`, `auto`, also class names",
-			"scope": "entity.name.type"
-		},
-		{
-			"name": "Storage",
-			"settings": {
-				"foreground": "#81A1C1"
-			},
-			"description": "Responsible for primitive return types, private, public, modifiers",
-			"scope": "storage"
-		},
-		{
-			"name": "Strings",
-			"settings": {
-				"foreground": "#a3be8c"
-			},
-			"description": "Responsible for strings (what's inside of the quotes), also for includes in angled brackets",
-			"scope": "string"
-		},
-		{
-			"name": "Integers",
-			"settings": {
-				"foreground": "#d08770"
-			},
-			"description": "Responsible for numbers",
-			"scope": "constant.numeric"
-		},
-		{
-			"name": "Constants",
-			"settings": {
-				"foreground": "#d08770"
-			},
-			"description": "Responsible for constants, for example `nullptr`",
-			"scope": "constant"
-		},
-		{
-			"name": "Comments",
-			"settings": {
-				"fontStyle": "",
-				"foreground": "#4c566a"
-			},
-			"description": "Responsible for comments",
-			"scope": [
-				"comment",
-				"punctuation.definition.comment"
-			]
-		},
-		{
-			"name": "Attributes",
-			"settings": {
-				"foreground": "#d08770"
-			},
-			"description": "Responsible for: e.g. #pragma **once**",
-			"scope": "entity.other.attribute-name"
-		},
-		{
-			"name": "Supports",
-			"settings": {
-				"foreground": "#d08770"
-			},
-			"description": "Responsible for things like [[maybe_unused]]",
-			"scope": "support"
-		}
-	],
 	"colors": {
-		"activityBar.background": "#2e3440",
-		"editor.background": "#292e39",
-		"editorError.foreground": "#bf616a",
-		"editorWarning.foreground": "#ebcb8b",
-		"sideBar.background": "#242933",
-		"sideBar.foreground": "#a1afc9",
-		"statusBar.background": "#3b4252",
-		"statusBarItem.remoteBackground": "#6e8db4",
+		"activityBar.background": "#323846",
 		"activityBar.foreground": "#e5e9f0",
 		"activityBarBadge.background": "#4d78cc",
 		"activityBarBadge.foreground": "#f8fafd",
@@ -185,19 +9,16 @@
 		"button.secondaryBackground": "#30333d",
 		"button.secondaryForeground": "#c0bdbd",
 		"debugToolBar.background": "#21252b",
-		"descriptionForeground": "#abb2bf",
+		"descriptionForeground": "#d8dee9",
 		"diffEditor.insertedTextBackground": "#00809b33",
 		"dropdown.background": "#21252b",
 		"dropdown.border": "#21252b",
+		"editor.background": "#232731",
 		"editor.findMatchBackground": "#42557b",
 		"editor.findMatchBorder": "#457dff",
 		"editor.findMatchHighlightBackground": "#6199ff2f",
-		"editor.foreground": "#abb2bf",
-		"editor.lineHighlightBackground": "#2c313c",
-		"editorLineNumber.activeForeground": "#abb2bf",
-		"editorGutter.addedBackground": "#109868",
-		"editorGutter.deletedBackground": "#9A353D",
-		"editorGutter.modifiedBackground": "#948B60",
+		"editor.foreground": "#a4b2ca",
+		"editor.lineHighlightBackground": "#2c313d",
 		"editor.selectionBackground": "#67769660",
 		"editor.selectionHighlightBackground": "#ffffff10",
 		"editor.wordHighlightBackground": "#d2e0ff2f",
@@ -208,23 +29,30 @@
 		"editorBracketMatch.border": "#515a6b",
 		"editorCursor.background": "#ffffffc9",
 		"editorCursor.foreground": "#528bff",
+		"editorError.foreground": "#bf616a",
 		"editorGroup.border": "#181a1f",
 		"editorGroupHeader.tabsBackground": "#21252b",
+		"editorGutter.addedBackground": "#109868",
+		"editorGutter.deletedBackground": "#9A353D",
+		"editorGutter.modifiedBackground": "#948B60",
 		"editorHoverWidget.background": "#21252b",
 		"editorHoverWidget.border": "#181a1f",
 		"editorIndentGuide.activeBackground": "#c8c8c859",
 		"editorIndentGuide.background": "#3b4048",
+		"editorLineNumber.activeForeground": "#abb2bf",
 		"editorLineNumber.foreground": "#495162",
 		"editorMarkerNavigation.background": "#21252b",
 		"editorRuler.foreground": "#abb2bf26",
 		"editorSuggestWidget.background": "#21252b",
 		"editorSuggestWidget.border": "#181a1f",
 		"editorSuggestWidget.selectedBackground": "#2c313a",
+		"editorWarning.foreground": "#ebcb8b",
 		"editorWhitespace.foreground": "#3b4048",
 		"editorWidget.background": "#21252b",
 		"focusBorder": "#3e4452",
 		"gitDecoration.ignoredResourceForeground": "#636b78",
 		"input.background": "#1d1f23",
+		"inputOption.activeBorder": "#E9436D80",
 		"list.activeSelectionBackground": "#2c313a",
 		"list.activeSelectionForeground": "#d7dae0",
 		"list.focusBackground": "#323842",
@@ -250,51 +78,225 @@
 		"scrollbarSlider.hoverBackground": "#5a637580",
 		"settings.focusedRowBackground": "#282c34",
 		"settings.headerForeground": "#fff",
+		"sideBar.background": "#272c37",
+		"sideBar.foreground": "#a4b2ca",
 		"sideBarSectionHeader.background": "#282c34",
 		"sideBarSectionHeader.foreground": "#abb2bf",
+		"statusBar.background": "#3b4252",
 		"statusBar.debuggingBackground": "#cc6633",
 		"statusBar.debuggingBorder": "#66017a",
 		"statusBar.debuggingForeground": "#ffffff",
 		"statusBar.foreground": "#9da5b4",
 		"statusBar.noFolderBackground": "#21252b",
 		"statusBarItem.hoverBackground": "#2c313a",
+		"statusBarItem.remoteBackground": "#6f94b8",
 		"statusBarItem.remoteForeground": "#f8fafd",
-		"tab.activeBackground": "#282c34",
-		"tab.activeForeground": "#dcdcdc",
-		"tab.border": "#292e39",
-		"tab.hoverBackground": "#323842",
-		"tab.inactiveBackground": "#21252b",
-		"tab.unfocusedHoverBackground": "#323842",
-		"terminal.border": "#abb2bf",
-		"terminal.foreground": "#abb2bf",
-		"terminal.selectionBackground": "#abb2bf30",
+		"tab.activeBackground": "#3b4252",
+		"tab.activeForeground": "#d8dee9",
+		"tab.border": "#272c37",
+		"tab.hoverBackground": "#303643",
+		"tab.inactiveBackground": "#272c37",
+		"tab.unfocusedHoverBackground": "#303643",
+		"terminal.ansiBlack": "#2e3440",
+		"terminal.ansiBlue": "#8fbcbb",
+		"terminal.ansiBrightBlack": "#3b4252",
+		"terminal.ansiBrightBlue": "#9ec5c4",
+		"terminal.ansiBrightCyan": "#9ac9d7",
+		"terminal.ansiBrightGreen": "#b0c79c",
+		"terminal.ansiBrightMagenta": "#be9db8",
+		"terminal.ansiBrightRed": "#c6737b",
+		"terminal.ansiBrightWhite": "#d8dee9",
+		"terminal.ansiBrightYellow": "#eed4a0",
+		"terminal.ansiCyan": "#88c0d0",
+		"terminal.ansiGreen": "#a3be8c",
+		"terminal.ansiMagenta": "#b48ead",
+		"terminal.ansiRed": "#bf616a",
+		"terminal.ansiWhite": "#eceff4",
+		"terminal.ansiYellow": "#ebcb8b",
+		"terminal.background": "#252a34",
+		"terminal.border": "#252a34",
+		"terminal.foreground": "#a7b4cd",
+		"terminal.selectionBackground": "#383f4f",
 		"textBlockQuote.background": "#2e3440",
 		"textBlockQuote.border": "#4b5362",
-		"textLink.foreground": "#61afef",
+		"textLink.activeForeground": "#6fa8a7",
+		"textLink.foreground": "#8fbcbb",
 		"textPreformat.foreground": "#d19a66",
 		"titleBar.activeBackground": "#282c34",
 		"titleBar.activeForeground": "#9da5b4",
 		"titleBar.inactiveBackground": "#21252b",
 		"titleBar.inactiveForeground": "#6b717d",
 		"walkThrough.embeddedEditorBackground": "#2e3440",
-		"welcomePage.buttonHoverBackground": "#404754",
-		"terminal.ansiBrightBlack": "#4c566a",
-		"terminal.ansiBrightBlue": "#6e8db4",
-		"terminal.ansiBrightCyan": "#93c6d4",
-		"terminal.ansiBrightGreen": "#8fbcbb",
-		"terminal.ansiBrightMagenta": "#bb99b5",
-		"terminal.ansiBrightRed": "#c57078",
-		"terminal.ansiBrightWhite": "#eceff4",
-		"terminal.ansiBrightYellow": "#ecd096",
-		"terminal.ansiBlack": "#2e3440",
-		"terminal.ansiCyan": "#88c0d0",
-		"terminal.ansiBlue": "#6e8db4",
-		"terminal.ansiGreen": "#a3be8c",
-		"terminal.ansiMagenta": "#b48ead",
-		"terminal.ansiRed": "#bf616a",
-		"terminal.ansiWhite": "#d8dee9",
-		"terminal.ansiYellow": "#ebcb8b",
-		"terminal.background": "#292e39",
-		"inputOption.activeBorder": "#E9436D80"
-	}
+		"welcomePage.buttonBackground": "#292f3a",
+		"welcomePage.buttonHoverBackground": "#3b4252"
+	},
+	"name": "Nord Dark Pro",
+	"semanticHighlighting": true,
+	"semanticTokenColors": {
+		"enumMember": {
+			"foreground": "#88c0d0"
+		}
+	},
+	"tokenColors": [
+		{
+			"description": "Responsible for Quote color",
+			"name": "Quotes",
+			"scope": [
+				"punctuation.definition.string.begin",
+				"punctuation.definition.string.end"
+			],
+			"settings": {
+				"foreground": "#a3be8c"
+			}
+		},
+		{
+			"description": "Responsible for commas",
+			"name": "Commas",
+			"scope": "punctuation.separator.delimiter",
+			"settings": {
+				"foreground": "#c4cddd"
+			}
+		},
+		{
+			"description": "Responsible for (curly) brackets / blocks",
+			"name": "C++ block",
+			"scope": [
+				"punctuation.section.block.begin.bracket.curly.cpp",
+				"punctuation.section.block.end.bracket.curly.cpp"
+			],
+			"settings": {
+				"foreground": "#aab7ce"
+			}
+		},
+		{
+			"description": "Responsible for const variables names, for example `const auto& **item**`",
+			"name": "Constant Names",
+			"scope": "variable.other.constant",
+			"settings": {
+				"foreground": "#5e87b0"
+			}
+		},
+		{
+			"description": "Responsible for non const variables names, for example `std::set<std::string> **set**`",
+			"name": "Non Const Names",
+			"scope": "variable.other.readwrite",
+			"settings": {
+				"foreground": "#6f94b8"
+			}
+		},
+		{
+			"description": "Responsible for variable names (function parameters, class members)",
+			"name": "Variables",
+			"scope": "variable",
+			"settings": {
+				"foreground": "#6f94b8"
+			}
+		},
+		{
+			"description": "Responsible for control keywords, for example `return`, `if`, `using`, `#ifdef`",
+			"name": "Control Keywords",
+			"scope": [
+				"keyword",
+				"keyword.control"
+			],
+			"settings": {
+				"foreground": "#81a1c1"
+			}
+		},
+		{
+			"description": "Responsible for operators",
+			"name": "Operators",
+			"scope": [
+				"keyword.operator"
+			],
+			"settings": {
+				"foreground": "#81a1c1"
+			}
+		},
+		{
+			"description": "Responsible for namespace names",
+			"name": "Namespaces",
+			"scope": "entity.name.namespace",
+			"settings": {
+				"foreground": "#8fbcbb"
+			}
+		},
+		{
+			"description": "Responsible for function names",
+			"name": "Functions",
+			"scope": "entity.name.function",
+			"settings": {
+				"foreground": "#88c0d0"
+			}
+		},
+		{
+			"description": "Responsible for types, for example `int`, `auto`, also class names",
+			"name": "Types / Classes",
+			"scope": "entity.name.type",
+			"settings": {
+				"foreground": "#8fbcbb"
+			}
+		},
+		{
+			"description": "Responsible for primitive return types, private, public, modifiers",
+			"name": "Storage",
+			"scope": "storage",
+			"settings": {
+				"foreground": "#81a1c1"
+			}
+		},
+		{
+			"description": "Responsible for strings (what's inside of the quotes), also for includes in angled brackets",
+			"name": "Strings",
+			"scope": "string",
+			"settings": {
+				"foreground": "#a3be8c"
+			}
+		},
+		{
+			"description": "Responsible for numbers",
+			"name": "Integers",
+			"scope": "constant.numeric",
+			"settings": {
+				"foreground": "#b48ead"
+			}
+		},
+		{
+			"description": "Responsible for constants, for example `nullptr`",
+			"name": "Constants",
+			"scope": "constant",
+			"settings": {
+				"foreground": "#b48ead"
+			}
+		},
+		{
+			"description": "Responsible for comments",
+			"name": "Comments",
+			"scope": [
+				"comment",
+				"punctuation.definition.comment"
+			],
+			"settings": {
+				"fontStyle": "",
+				"foreground": "#41495b"
+			}
+		},
+		{
+			"description": "Responsible for: e.g. #pragma **once**",
+			"name": "Attributes",
+			"scope": "entity.other.attribute-name",
+			"settings": {
+				"foreground": "#d08770"
+			}
+		},
+		{
+			"description": "Responsible for things like [[maybe_unused]]",
+			"name": "Supports",
+			"scope": "support",
+			"settings": {
+				"foreground": "#d08770"
+			}
+		}
+	],
+	"type": "dark"
 }
