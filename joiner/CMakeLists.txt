@@ -5,7 +5,9 @@ file(GLOB src
     "main.cpp"
 )
 
+add_subdirectory(vivid)
 add_executable(${PROJECT_NAME} ${src})
+target_link_libraries(${PROJECT_NAME} vivid)
 target_include_directories(${PROJECT_NAME} PRIVATE "json/single_include")
 target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Werror -Wextra -pedantic)
 

@@ -1,3 +1,4 @@
+#include "vivid/interpolation.h"
 #include <fstream>
 #include <iostream>
 #include <map>
@@ -5,6 +6,33 @@
 #include <ostream>
 #include <set>
 #include <string>
+#include <vivid/vivid.h>
+
+const std::map<std::string, std::string> nordColors = {
+    // Polar Night
+    {"nord0", "#2e3440"}, //-> Used for background colors
+    {"nord1", "#3b4252"}, //-> Elevated more prominent UI elements like "stauts bars", "panels", "modals", "buttons"
+    {"nord2", "#434c5e"}, //-> Currently Active editor line, text selection / highlight
+    {"nord3", "#4c566a"}, //-> Indent wrap / guide marker, comments, invisible / non-printable characters
+
+    // Snow Storm
+    {"nord4", "#d8dee9"}, //-> Text Editor Caret, color for variables, constants, attributes and fields
+    {"nord5", "#e5e9f0"}, //-> subtle UI Text elements, button hover / focus
+    {"nord6", "#eceff4"}, //-> Elevated UI text elements, plain text, curly / square brackets
+
+    // Frost
+    {"nord7", "#8fbcbb"},  //-> UI elements that stand out / require attention, classes, types & primitives
+    {"nord8", "#88c0d0"},  //-> UI elements that require most attention, used for declarations, calls / functions.
+    {"nord9", "#81a1c1"},  //-> Secondary UI elements, operators, units, punctuation
+    {"nord10", "#5e81ac"}, //-> pragmas, comment keywords, preprocessor statements
+    //
+    {"nord11", "#bf616a"}, //-> Errors
+    {"nord12", "#d08770"}, //-> Annotations and decorators
+    {"nord13", "#ebcb8b"}, //-> Warnings
+    {"nord14", "#a3be8c"}, //-> Success, strings of any type
+    {"nord15", "#b48ead"}, //-> Numbers
+
+};
 
 auto getScopes(const nlohmann::json &item)
 {
@@ -64,6 +92,70 @@ auto similarScopes(const nlohmann::json &nordItem, const nlohmann::json &oneDark
     return false;
 }
 
+auto translateColor(const std::string &name)
+{
+    if (name.size() < 4)
+    {
+        return name;
+    }
+
+    if (name.substr(0, 4) == "nord")
+    {
+        auto colorName = name;
+        if (name.find(' ') != std::string::npos)
+        {
+            colorName = name.substr(0, name.find_first_of(' '));
+        }
+
+        auto color = nordColors.at(colorName);
+        if (name.find(' ') != std::string::npos)
+        {
+            auto vividColor = vivid::Color(color);
+            auto params = name.substr(name.find_first_of(' ') + 1);
+
+            if (!params.empty())
+            {
+                if (params[0] == 'd')
+                {
+                    auto amount = std::stof(params.substr(1));
+                    auto hsl = vividColor.hsl().value();
+
+                    auto l = hsl.z;
+                    l -= amount / 100.f;
+                    l = static_cast<float>(std::fmin(1, fmax(0, l)));
+
+                    auto newColor = vivid::Color({hsl.x, hsl.y, l}, vivid::Color::Space::Hsl);
+
+                    std::cout << vividColor.info() << std::endl;
+                    std::cout << newColor.info() << std::endl;
+
+                    color = newColor.hex();
+                }
+                if (params[0] == 'l')
+                {
+                    auto amount = std::stof(params.substr(1));
+                    auto hsl = vividColor.hsl().value();
+
+                    auto l = hsl.z;
+                    l += amount / 100.f;
+                    l = static_cast<float>(std::fmin(1, fmax(0, l)));
+
+                    auto newColor = vivid::Color({hsl.x, hsl.y, l}, vivid::Color::Space::Hsl);
+
+                    std::cout << vividColor.info() << std::endl;
+                    std::cout << newColor.info() << std::endl;
+
+                    color = newColor.hex();
+                }
+            }
+        }
+
+        return color;
+    }
+
+    return name;
+}
+
 auto generateColorMap(const nlohmann::json &nordPro, const nlohmann::json &oneDark)
 {
     std::set<std::string> conflicts;
@@ -111,7 +203,7 @@ auto generateColorMap(const nlohmann::json &nordPro, const nlohmann::json &oneDa
             std::string replacement;
             std::cin >> replacement;
 
-            colorMap[conflict] = replacement;
+            colorMap[conflict] = translateColor(replacement);
         }
     }
 
@@ -134,6 +226,18 @@ int main()
         std::string oneDarkContent((std::istreambuf_iterator<char>(oneDarkFile)), std::istreambuf_iterator<char>());
         oneDarkFile.close();
         oneDark = nlohmann::json::parse(oneDarkContent);
+    }
+
+    // Replace Color Names by corresponding color code
+    for (auto &nordItem : nordPro["tokenColors"])
+    {
+        auto &color = nordItem["settings"]["foreground"];
+        color = translateColor(color);
+    }
+    for (auto &nordItem : nordPro["colors"].items())
+    {
+        auto &color = nordItem.value();
+        color = translateColor(color);
     }
 
     // Adjust Colors
