@@ -2046,8 +2046,8 @@
         },
         {
             "description": "Responsible for things like [[maybe_unused]]",
-            "name": "Supports",
-            "scope": "support",
+            "name": "Attributes",
+            "scope": "support.other.attribute.cpp",
             "settings": {
                 "foreground": "#d08770"
             }

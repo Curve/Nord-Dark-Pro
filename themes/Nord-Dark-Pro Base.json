@@ -160,12 +160,12 @@
 			"scope": "entity.other.attribute-name"
 		},
 		{
-			"name": "Supports",
+			"name": "Attributes",
 			"settings": {
 				"foreground": "nord12"
 			},
 			"description": "Responsible for things like [[maybe_unused]]",
-			"scope": "support"
+			"scope": "support.other.attribute.cpp"
 		}
 	],
 	"colors": {
