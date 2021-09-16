@@ -97,7 +97,10 @@
 				"foreground": "nord8"
 			},
 			"description": "Responsible for function names",
-			"scope": "entity.name.function"
+			"scope": [
+				"entity.name.function",
+				"support.function"
+			]
 		},
 		{
 			"name": "Types / Classes",

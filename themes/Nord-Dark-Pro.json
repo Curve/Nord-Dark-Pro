@@ -224,7 +224,10 @@
 		{
 			"description": "Responsible for function names",
 			"name": "Functions",
-			"scope": "entity.name.function",
+			"scope": [
+				"entity.name.function",
+				"support.function"
+			],
 			"settings": {
 				"foreground": "#88c0d0"
 			}

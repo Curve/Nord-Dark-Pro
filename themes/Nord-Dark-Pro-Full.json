@@ -383,21 +383,21 @@
             "name": "operator logical",
             "scope": "keyword.operator.logical",
             "settings": {
-                "foreground": "#56b6c2"
+                "foreground": "#81A1C1"
             }
         },
         {
             "name": "operator bitwise",
             "scope": "keyword.operator.bitwise",
             "settings": {
-                "foreground": "#56b6c2"
+                "foreground": "#81A1C1"
             }
         },
         {
             "name": "operator channel",
             "scope": "keyword.operator.channel",
             "settings": {
-                "foreground": "#56b6c2"
+                "foreground": "#81A1C1"
             }
         },
         {
@@ -411,7 +411,7 @@
             "name": "CSS/SCSS/LESS Operators",
             "scope": "keyword.operator.css,keyword.operator.scss,keyword.operator.less",
             "settings": {
-                "foreground": "#56b6c2"
+                "foreground": "#81A1C1"
             }
         },
         {
@@ -543,7 +543,7 @@
             "name": "keyword.operator",
             "scope": "keyword.operator.arithmetic,keyword.operator.comparison,keyword.operator.decrement,keyword.operator.increment,keyword.operator.relational",
             "settings": {
-                "foreground": "#56b6c2"
+                "foreground": "#81A1C1"
             }
         },
         {
@@ -648,7 +648,7 @@
             "name": "Compound Assignment Operators js/ts",
             "scope": "keyword.operator.assignment.compound.js,keyword.operator.assignment.compound.ts",
             "settings": {
-                "foreground": "#56b6c2"
+                "foreground": "#81A1C1"
             }
         },
         {
@@ -825,7 +825,7 @@
             "name": "Support",
             "scope": "support.function",
             "settings": {
-                "foreground": "#56b6c2"
+                "foreground": "#88c0d0"
             }
         },
         {
@@ -1281,7 +1281,7 @@
             "name": "php logical/bitwise operator",
             "scope": "keyword.operator.logical.php,keyword.operator.bitwise.php,keyword.operator.arithmetic.php",
             "settings": {
-                "foreground": "#56b6c2"
+                "foreground": "#81A1C1"
             }
         },
         {
@@ -1295,7 +1295,7 @@
             "name": "php comparison",
             "scope": "keyword.operator.comparison.php",
             "settings": {
-                "foreground": "#56b6c2"
+                "foreground": "#81A1C1"
             }
         },
         {
@@ -1534,7 +1534,7 @@
                 "keyword.operator.assignment"
             ],
             "settings": {
-                "foreground": "#56b6c2"
+                "foreground": "#81A1C1"
             }
         },
         {
